@@ -38,8 +38,9 @@ public class FibonacciIterative {
     long millisBefore = System.currentTimeMillis();
     long sum = fib(n);
     long millisAfter = System.currentTimeMillis();
+    long millisElapsed = millisAfter - millisBefore;
 
-    FibonacciHelper.displayInfo(n, sum, millisAfter - millisBefore);
+    FibonacciHelper.displayInfo(n, sum, millisElapsed);
   }
 
 }

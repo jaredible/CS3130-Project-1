@@ -11,6 +11,6 @@ package main;
  */
 public class FibonacciConstants {
 
-  public static final int N = 40;
+  public static final int N = 50;
 
 }
