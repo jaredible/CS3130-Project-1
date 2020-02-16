@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2020 Jared Diehl. All rights reserved.
  *******************************************************************************/
-package main;
+package edu.umsl.cs3130.project1;
 
 import java.util.concurrent.TimeUnit;
 
