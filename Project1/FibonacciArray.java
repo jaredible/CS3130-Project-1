@@ -32,7 +32,7 @@ public class FibonacciArray {
       }
 
       if (array[(counter - 1) % 3][0] != array[(counter + 0) % 3][0]) {
-        System.out.println(String.format("The biggest Fibonacci number less than %d digits is:\n%s", DIGITS_MAX, arrayToString(array[(counter - 1) % 3])));
+        System.out.println(String.format("The biggest Fibonacci number less than %d digits:\n%s", DIGITS_MAX, arrayToString(array[(counter - 1) % 3])));
         throw new Exception(String.format("Reached %d digits!", DIGITS_MAX));
       }
 
