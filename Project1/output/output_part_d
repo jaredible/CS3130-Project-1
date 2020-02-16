@@ -1,5 +1,0 @@
-Largest Fibonacci number less than 100 is:
-831082459908702935293955784701120993704369028200651613859972830080739980541065544674812034151699525
-main.FibonacciException: Reached 100 digits!
-	at main.FibonacciArray.fib(FibonacciArray.java:43)
-	at main.FibonacciArray.main(FibonacciArray.java:62)

@@ -1,3 +1,0 @@
-n: 50, sum: 12586269025, millis: 1
-n: 50, sum: 12586269025, millis: 74973
-Summing the Fibonacci sequence using recursion took 74972 milliseonds longer than iterative.
