@@ -6,9 +6,9 @@ package main;
 /**
  * @author Jared Diehl
  * 
- *         Outputs the sum of the
+ *         Outputs the nth term of the
  *         Fibonacci sequence using iteration and
- *         recursion up to N and the time in
+ *         recursion and the time in
  *         milliseconds the executions take.
  */
 public class FibonacciComparison {
@@ -34,7 +34,7 @@ public class FibonacciComparison {
     
     FibonacciHelper.displayInfo(n, sum, millisElapsed);
     
-    System.out.println(String.format("Summing the Fibonacci sequence using recursion took %d milliseonds longer than iterative.", millisDifference));
+    System.out.println(String.format("Summing the Fibonacci sequence up to an N of %d using recursion took %d milliseonds longer than iterative.", FibonacciConstants.N, millisDifference));
   }
 
 }

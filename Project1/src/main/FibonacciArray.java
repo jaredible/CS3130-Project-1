@@ -20,18 +20,27 @@ import java.util.Arrays;
 
 public class FibonacciArray {
 
-  public static final int DIGITS_MAX = 100;
-  public static final boolean ALLOW_REACH_DIGITS_MAX = true;
+  private static final int DIGITS_MAX = 100;
+  private static final boolean ALLOW_REACH_DIGITS_MAX = true;
 
+  /**
+   * Calculates the nth term of the Fibonacci sequence
+   * using arrays or throws an {@link FibonacciException}
+   * if the max amount of digits have been reached.
+   *
+   * @param n the nth number of the Fibonacci sequence.
+   * @param flag used to allow the max amount of digits to be reached.
+   * @return the nth term of the Fibonacci sequence.
+   */
   public static String fib(int n, boolean flag) throws FibonacciException {
     int[][] array = new int[3][DIGITS_MAX];
 
     array[1][DIGITS_MAX - 1] = 1;
 
+    int i = 2;
     int carry = 0;
-    int counter = 2;
     int num;
-    for (int i = 2; i <= n || flag; i++) {
+    for (i = 2; i <= n || flag; i++) {
       for (int j = DIGITS_MAX - 1; j >= 0; j--) {
         num = array[(i + 1) % 3][j] + array[(i + 2) % 3][j] + carry;
         array[(i + 3) % 3][j] = num % 10;
@@ -39,16 +48,20 @@ public class FibonacciArray {
       }
 
       if (array[(i - 1) % 3][0] != array[(i + 0) % 3][0]) {
-        System.out.println(String.format("Largest Fibonacci number less than %d is:\n%s", DIGITS_MAX, arrayToString(array[(i - 1) % 3])));
+        System.out.println(String.format("Biggest Fibonacci number less than %d digits is:\n%s", DIGITS_MAX, arrayToString(array[(i - 1) % 3])));
         throw new FibonacciException(String.format("Reached %d digits!", DIGITS_MAX));
       }
-
-      counter++;
     }
 
-    return new BigInteger(arrayToString(array[(counter - 1) % 3])).toString();
+    return new BigInteger(arrayToString(array[(i - 1) % 3])).toString();
   }
 
+  /**
+   * Converts an array into a {@link String}.
+   *
+   * @param array the integer array to convert.
+   * @return a converted integer array into a {@link String}.
+   */
   private static String arrayToString(int[] array) {
     String str = Arrays.toString(array).replaceAll("\\[|\\]|,|\\s", "");
     return new BigInteger(str).toString();
@@ -61,8 +74,9 @@ public class FibonacciArray {
       long millisBefore = System.currentTimeMillis();
       String sum = fib(n, ALLOW_REACH_DIGITS_MAX);
       long millisAfter = System.currentTimeMillis();
+      long millisElapsed = millisAfter - millisBefore;
 
-      FibonacciHelper.displayInfo(n, sum, millisAfter - millisBefore);
+      FibonacciHelper.displayInfo(n, sum, millisElapsed);
     } catch (FibonacciException e) {
       e.printStackTrace();
     }

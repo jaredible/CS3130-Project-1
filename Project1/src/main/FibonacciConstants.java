@@ -12,5 +12,6 @@ package main;
 public class FibonacciConstants {
 
   public static final int N = 50;
+  public static final boolean TEST = false;
 
 }
